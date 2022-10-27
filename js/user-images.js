@@ -1,11 +1,7 @@
-import { createPhotos } from './data.js';
-
 const userImages = document.querySelector('.pictures');
 const similarImageTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
-const similarImages = createPhotos();
-
-const renderPictures = () => {
+const renderPictures = (similarImages) => {
 
   const DocumentFragment = document.createDocumentFragment();
 
