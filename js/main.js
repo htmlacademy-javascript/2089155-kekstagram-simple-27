@@ -1,4 +1,6 @@
-import {createPhotos} from './data.js';
+import { createPhotos } from './data.js';
+import { renderPictures } from './user-images.js';
 
-// eslint-disable-next-line no-console
-console.log(createPhotos());
+const similarImages = createPhotos();
+
+renderPictures(similarImages);
