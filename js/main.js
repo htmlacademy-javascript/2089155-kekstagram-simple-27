@@ -1,6 +1,4 @@
-import { createPhotos } from './data.js';
-import { renderPictures } from './user-images.js';
 
-const similarImages = createPhotos();
+import './user-modal.js';
 
-renderPictures(similarImages);
+
