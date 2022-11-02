@@ -10,8 +10,7 @@ const getRandomPositiveInteger = (a, b) => {
 
 const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
 
-export {getRandomArrayElement, getRandomPositiveInteger};
+const isEscapeKey = (evt) => evt.key === 'Escape';
+const isEnterKey = (evt) => evt.key === 'Enter';
 
-// function checkStringLength (string, length) {
-//   return string.length <= length;
-// }
+export {getRandomArrayElement, getRandomPositiveInteger, isEscapeKey, isEnterKey};
