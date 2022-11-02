@@ -1,6 +1,5 @@
 const imageForm = document.querySelector('.img-upload__form');
 
-
 const pristine = new Pristine(imageForm, {
   classTo: 'img-upload__text',
   errorTextParent: 'img-upload__text',
@@ -19,4 +18,3 @@ imageForm.addEventListener('submit', (evt) => {
     console.log('Форма невалидна');
   }
 });
-
