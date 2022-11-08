@@ -28,6 +28,12 @@ const setModalHandlers = () => {
     document.addEventListener('keydown', onPopupEscKeydown);
     document.querySelector('.text__description').value = '';
     document.querySelector('.img-upload__input').value = '';
+    document.querySelector('.img-upload__preview').classList.remove('effects__preview--chrome');
+    document.querySelector('.img-upload__preview').classList.remove('effects__preview--sepia');
+    document.querySelector('.img-upload__preview').classList.remove('effects__preview--marvin');
+    document.querySelector('.img-upload__preview').classList.remove('effects__preview--phobos');
+    document.querySelector('.img-upload__preview').classList.remove('effects__preview--heat');
+    document.querySelector('.img-upload__preview').classList.add('effects__preview--none');
   }
 
   userModalOpenElement.addEventListener('change', () => {
