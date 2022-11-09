@@ -12,9 +12,8 @@ imageForm.addEventListener('submit', (evt) => {
   const isValid = pristine.validate();
   if (isValid) {
     // eslint-disable-next-line no-console
-    console.log('Можно отправлять');
-  } else {
-    // eslint-disable-next-line no-console
-    console.log('Форма невалидна');
+    return console.log('Можно отправлять');
   }
+  // eslint-disable-next-line no-console
+  console.log('Форма невалидна');
 });

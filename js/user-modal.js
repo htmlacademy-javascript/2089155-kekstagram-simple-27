@@ -7,6 +7,10 @@ const userBody = document.querySelector('body');
 const userModalOpenElement = document.querySelector('#upload-file');
 const userModalCloseElement = userModalElement.querySelector('#upload-cancel');
 
+const photo = document.querySelector('.img-upload__preview');
+const slider = document.querySelector('.img-upload__effect-level');
+
+
 const setModalHandlers = () => {
 
   const onPopupEscKeydown = (evt) => {
@@ -20,6 +24,7 @@ const setModalHandlers = () => {
     userModalElement.classList.remove('hidden');
     userBody.classList.add('modal-open');
     document.addEventListener('keydown', onPopupEscKeydown);
+    slider.classList.add('visually-hidden');
   }
 
   function closeUserModal() {
@@ -28,12 +33,8 @@ const setModalHandlers = () => {
     document.addEventListener('keydown', onPopupEscKeydown);
     document.querySelector('.text__description').value = '';
     document.querySelector('.img-upload__input').value = '';
-    document.querySelector('.img-upload__preview').classList.remove('effects__preview--chrome');
-    document.querySelector('.img-upload__preview').classList.remove('effects__preview--sepia');
-    document.querySelector('.img-upload__preview').classList.remove('effects__preview--marvin');
-    document.querySelector('.img-upload__preview').classList.remove('effects__preview--phobos');
-    document.querySelector('.img-upload__preview').classList.remove('effects__preview--heat');
-    document.querySelector('.img-upload__preview').classList.add('effects__preview--none');
+    photo.className = 'img-upload__preview effects__preview--none';
+    photo.style.filter = '';
   }
 
   userModalOpenElement.addEventListener('change', () => {
