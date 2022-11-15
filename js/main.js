@@ -1,12 +1,18 @@
-import { createPhotos } from './data.js';
 import { renderPictures } from './similar-images.js';
-import { setModalHandlers } from './user-modal.js';
+import { openUserModal, closeUserModal } from './user-modal.js';
 import { userScaleElements } from './scale.js';
 import { sliderElements } from './slider.js';
+import { setUserFormSubmit } from './user-form.js';
+import { getData } from './api.js';
 
-const similarImages = createPhotos();
+const SIMILAR_PHOTOS_COUNT = 25;
 
-renderPictures(similarImages);
-setModalHandlers();
+closeUserModal();
 userScaleElements();
 sliderElements();
+
+getData((photos) => {
+  renderPictures(photos.slice(0, SIMILAR_PHOTOS_COUNT));
+});
+
+setUserFormSubmit(closeUserModal, openUserModal);
