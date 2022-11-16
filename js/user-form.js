@@ -9,6 +9,7 @@ const pristine = new Pristine(imageForm, {
   errorTextParent: 'img-upload__text',
   errorTextClass: 'img-upload__error-text',
 });
+
 const submitButton = imageForm.querySelector('.img-upload__submit');
 
 const blockSubmitButton = () => {
@@ -19,6 +20,42 @@ const blockSubmitButton = () => {
 const unblockSubmitButton = () => {
   submitButton.disabled = false;
   submitButton.textContent = 'Опубликовать';
+};
+
+
+const userMesenger = document.querySelector('.pictures');
+const mesengerTemplate = document.querySelector('#success').content.querySelector('.success__title');
+
+const mesengers = (okMesenger) => {
+
+  const DocumentFragment1 = document.createDocumentFragment();
+
+  okMesenger.forEach(({ title, text}) => {
+    const mesengerElement = mesengerTemplate.cloneNode(true);
+    mesengerElement.querySelector('.success__title').textContent = title;
+    mesengerElement.querySelector('.success__button').button = text;
+    DocumentFragment1.appendChild(mesengerElement);
+  });
+
+  userMesenger.appendChild(DocumentFragment1);
+};
+
+
+const userMesengerError = document.querySelector('.pictures');
+const mesengerTemplateEroor = document.querySelector('#error').content.querySelector('.error__title');
+
+const mesengersError = (errorMesenger) => {
+
+  const DocumentFragment2 = document.createDocumentFragment();
+
+  errorMesenger.forEach(({ title, text}) => {
+    const mesengerErrorElement = mesengerTemplateEroor.cloneNode(true);
+    mesengerErrorElement.querySelector('.error__title').textContent = title;
+    mesengerErrorElement.querySelector('.error__button').button = text;
+    DocumentFragment2.appendChild(mesengerErrorElement);
+  });
+
+  userMesengerError.appendChild(DocumentFragment2);
 };
 
 const setUserFormSubmit = (onSuccess) => {
@@ -46,4 +83,4 @@ const setUserFormSubmit = (onSuccess) => {
   });
 };
 
-export { setUserFormSubmit };
+export { setUserFormSubmit, mesengers, mesengersError};

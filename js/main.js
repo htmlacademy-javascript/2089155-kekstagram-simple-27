@@ -2,7 +2,7 @@ import { renderPictures } from './similar-images.js';
 import { openUserModal, closeUserModal } from './user-modal.js';
 import { userScaleElements } from './scale.js';
 import { sliderElements } from './slider.js';
-import { setUserFormSubmit } from './user-form.js';
+import { setUserFormSubmit, mesengers, mesengersError } from './user-form.js';
 import { getData } from './api.js';
 
 const SIMILAR_PHOTOS_COUNT = 25;
@@ -16,3 +16,5 @@ getData((photos) => {
 });
 
 setUserFormSubmit(closeUserModal, openUserModal);
+mesengers();
+mesengersError();
