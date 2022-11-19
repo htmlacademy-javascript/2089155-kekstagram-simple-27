@@ -9,7 +9,6 @@ const userModalCloseElement = userModalElement.querySelector('#upload-cancel');
 const photo = document.querySelector('.img-upload__preview');
 const slider = document.querySelector('.img-upload__effect-level');
 
-
 const onPopupEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
@@ -53,6 +52,5 @@ userModalCloseElement.addEventListener('keydown', (evt) => {
     closeUserModal();
   }
 });
-
 
 export { openUserModal, closeUserModal };

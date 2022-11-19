@@ -1,6 +1,4 @@
-// import { showAlert } from './util.js';
 import { sendData } from './api.js';
-
 
 const imageForm = document.querySelector('.img-upload__form');
 
@@ -22,49 +20,17 @@ const unblockSubmitButton = () => {
   submitButton.textContent = 'Опубликовать';
 };
 
-
-// const userMessage = document.querySelector('.pictures');
 const messageTemplate = document.querySelector('#success').content.querySelector('.success');
+const messageTemplateEroor = document.querySelector('#error').content.querySelector('.error');
 
-// const messages = (okMessage) => {
-
-//   const DocumentFragment1 = document.createDocumentFragment();
-
-//   okMessage.forEach(({ title, text}) => {
-//     const messageElement = messageTemplate.cloneNode(true);
-//     messageElement.querySelector('.success__title').textContent = title;
-//     messageElement.querySelector('.success__button').button = text;
-//     DocumentFragment1.appendChild(messageElement);
-//   });
-
-//   userMessage.appendChild(DocumentFragment1);
-// };
-
-
-// const userMessageError = document.querySelector('.pictures');
-const messageTemplateEroor = document.querySelector('#error').content.querySelector('.error__title');
-
-// const messagesError = (errorMessage) => {
-
-//   const DocumentFragment2 = document.createDocumentFragment();
-
-//   errorMessage.forEach(({ title, text}) => {
-//     const messageErrorElement = messageTemplateEroor.cloneNode(true);
-//     messageErrorElement.querySelector('.error__title').textContent = title;
-//     messageErrorElement.querySelector('.error__button').button = text;
-//     DocumentFragment2.appendChild(messageErrorElement);
-//   });
-
-//   userMessageError.appendChild(DocumentFragment2);
-// };
-
-const closeSuccessMessage = () => {
-  document.querySelector('.success').remove();
+const closeMessage = () => {
+  const messageElement = document.querySelector('.success') || document.querySelector('.error');
+  messageElement.remove();
 };
 
 const onMessageKeydown = (evt) => {
   if (evt.key === 'Escape') {
-    closeSuccessMessage();
+    closeMessage();
     document.removeEventListener('keydown', onMessageKeydown);
   }
 };
@@ -72,28 +38,16 @@ const onMessageKeydown = (evt) => {
 const showSuccessMessage = () => {
   const clonedMessageTemplate = messageTemplate.cloneNode(true);
   document.body.appendChild(clonedMessageTemplate);
-  clonedMessageTemplate.querySelector('.success__button').addEventListener('click', closeSuccessMessage);
+  clonedMessageTemplate.querySelector('.success__button').addEventListener('click', closeMessage);
   document.addEventListener('keydown', onMessageKeydown);
-};
-
-const closeErrorMessage = () => {
-  document.querySelector('.error').remove();
-};
-
-const onMessageErrorKeydown = (evt) => {
-  if (evt.key === 'Escape') {
-    closeErrorMessage();
-    document.removeEventListener('keydown', onMessageErrorKeydown);
-  }
 };
 
 const showErrorMessage = () => {
   const clonedMessageErrorTemplate = messageTemplateEroor.cloneNode(true);
   document.body.appendChild(clonedMessageErrorTemplate);
-  clonedMessageErrorTemplate.querySelector('.error__button').addEventListener('click', closeErrorMessage);
-  document.addEventListener('keydown', onMessageErrorKeydown);
+  clonedMessageErrorTemplate.querySelector('.error__button').addEventListener('click', closeMessage);
+  document.addEventListener('keydown', onMessageKeydown);
 };
-
 
 const setUserFormSubmit = (onSuccess) => {
 
@@ -119,6 +73,5 @@ const setUserFormSubmit = (onSuccess) => {
 
   });
 };
-
 
 export { setUserFormSubmit};

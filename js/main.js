@@ -16,5 +16,3 @@ getData((photos) => {
 });
 
 setUserFormSubmit(closeUserModal);
-// mesengers();
-// mesengersError();
